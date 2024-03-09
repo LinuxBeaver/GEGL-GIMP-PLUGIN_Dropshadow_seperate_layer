@@ -151,7 +151,7 @@ gegl_op_class_init (GeglOpClass *klass)
     "title",       _("Gimp Layer Shadow"),
     "categories",  "plugins",
     "reference-hash", "shea2aao1wbgxxft27730vaefe2g4f1b2ac",
-    "description", _("GEGL makes a shadow/glow meant to be used on individual Gimp layers. Duplicate your alpha channel present layer. Now apply this filter. Now the shadow is a layer of its own and can be moved using Gimp's move tool."
+    "description", _("Makes a shadow/glow meant to be used on individual Gimp layers. Duplicate your alpha channel present layer. Now apply this filter. Now the shadow is a layer of its own and can be moved using Gimp's move tool."
                      ""),
     NULL);
 }
