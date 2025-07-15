@@ -93,7 +93,7 @@ property_double (opacity, _("Shadow Opacity"), 1)
 static void attach (GeglOperation *operation)
 {
   GeglNode *gegl = operation->node;
-  GeglNode *input, *color, *move, *opacity, *blur, *median, *output;
+  GeglNode *input, *color, *move, *repair, *opacity, *blur, *median, *output;
 
   input    = gegl_node_get_input_proxy (gegl, "input");
   output   = gegl_node_get_output_proxy (gegl, "output");
@@ -120,7 +120,11 @@ static void attach (GeglOperation *operation)
                                          "abyss-policy",     GEGL_ABYSS_NONE,
                                          NULL);
 
-  gegl_node_link_many (input, median, blur, opacity, move, color,  output, NULL);
+ repair   = gegl_node_new_child (gegl,
+                                  "operation", "gegl:median-blur", "radius", 0, "abyss-policy", 0,  NULL);
+
+
+  gegl_node_link_many (input, median, blur, opacity, move, color, repair,  output, NULL);
 
 
 
